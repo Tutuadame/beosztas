@@ -1,0 +1,24 @@
+div#tables{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    margin-top: 7rem;
+}
+
+table{
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    margin: 1%;
+}
+
+
+.assignments{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+#modify:hover{
+    border: 6px black solid;
+}

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "beosztas-b6d2d": {
+      "hosting": {
+        "beosztas": [
+          "beosztas-b6d2d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "beosztas-b6d2d"
+  }
+}

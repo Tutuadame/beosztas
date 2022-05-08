@@ -1,0 +1,36 @@
+<style>
+    td{
+        width: 150%;
+        margin-left: .5rem;
+        font-size: 1.1rem;
+        padding: .20rem;
+        font-style: normal;
+    }
+    span{
+        font-size: 1.1rem;
+        font-style: italic;
+    }
+
+    @media screen and (max-width: 1650px){
+        span{
+            font-size: 100%;
+        }
+        td{
+            font-size: 100%;
+        }
+    }
+    @media screen and (max-width: 1430px){
+        span{
+            font-size: 80%;
+        }
+        td{
+            font-size: 80%;
+        }
+    }
+</style>
+
+<span>Rendelés neve: <td> {{rname}} </td></span>
+<span>Ideje:<td> {{begin}}-{{end}}</td></span>
+<span>Asszisztens:<td> {{assistant}}</td></span>
+<span>Orvos: <td> {{doctor}}</td></span>
+

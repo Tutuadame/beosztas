@@ -1,0 +1,13 @@
+.inputnone_container{
+    display: none;
+}
+.input_container{
+    display: flex;
+}
+
+.submit{
+    display: flex;
+}
+.submit_none{
+    display: none;
+}

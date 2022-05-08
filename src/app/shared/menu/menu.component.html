@@ -1,0 +1,25 @@
+<!--<nav [(ngModel)]="currentPage" name="nav" ngDefaultControl (click)="getPage()">
+    <button #contentValue (click)="menuSwitch(contentValue.value)" value="/home">Főoldal</button>
+    <button #contentValue1 (click)="menuSwitch(contentValue1.value)" value="/home/beosztasok">Beosztáshoz</button>
+    <button #contentValue2 (click)="menuSwitch(contentValue2.value)" value="/home/rendelesek">Rendelésekhez</button>    
+    <button #contentValue3 (click)="menuSwitch(contentValue3.value)" value="/home/asszisztensek">Asszisztensekhez</button>
+</nav>-->
+
+<mat-nav-list [(ngModel)]="currentPage" name="nav" ngDefaultControl (click)="getPage()">
+    <a mat-list-item (click)="menuSwitch('/home')">
+        <mat-icon>home</mat-icon>
+        <span>Főoldal</span>
+    </a>
+    <a mat-list-item (click)="menuSwitch('/home/beosztasok')">
+        <mat-icon>work_history</mat-icon>
+        <span>Beosztás</span>
+    </a>
+    <a mat-list-item (click)="menuSwitch('/home/rendelesek')">
+        <mat-icon>badge</mat-icon>
+        <span>Rendelések</span>
+    </a>
+    <a mat-list-item (click)="menuSwitch('/home/asszisztensek')">
+        <mat-icon>accessibility_new</mat-icon>
+        <span>Asszisztensek</span>
+    </a>
+</mat-nav-list>

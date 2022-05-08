@@ -1,0 +1,40 @@
+<style>
+    th{
+        position: relative;
+        font-size: 150%;
+        justify-content: center;
+        letter-spacing: .25rem;
+    }
+   
+    @media screen and (max-width: 1650px){
+        th{
+            font-size: 100%;
+        }
+    }
+    @media screen and (max-width: 1430px){
+        th{
+            font-size: 80%;
+        }
+    }
+    table{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+
+
+
+</style>
+<table>
+    <tr>
+        <th>Név</th>
+        <th>Ledolgozott Órák</th>
+    </tr>
+    <tr *ngFor="let obj of assistants">
+        <td>{{obj.name}}</td>
+        <td>{{obj.hours}}</td>
+        <button style="background-color: #F7FF93; color: black; margin: .2rem;" mat-raised-button (click)="handleMod(obj.id)" value={{obj.id}}>Módosítás</button>
+        <button style="background-color: #F7FF93; color: black; margin: .2rem;" mat-raised-button (click)="handleDel(obj.id)" value={{obj.id}}>Törlés</button>
+    </tr>
+    
+</table>

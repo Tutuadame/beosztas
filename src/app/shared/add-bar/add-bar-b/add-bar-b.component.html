@@ -1,0 +1,34 @@
+<style>
+   mat-form-field{
+      margin: .6rem;
+   }
+   #modify_beosztas{
+      display: flex;
+      flex-direction: column;
+      width: 8rem;
+      z-index: 1;
+      margin-bottom: 2rem;
+   }
+</style>
+
+<div id="modify_beosztas">
+   <mat-form-field>
+      <input matInput placeholder="Asszisztens" class="input" list="Asszisztensek" [formControl]="asszisztens_id">
+      <datalist id="Asszisztensek">
+         <option *ngFor="let item of couldWork" value="{{item['id']}}" >{{item['r_name']}} - {{item['doctor']}}</option>
+      </datalist>
+   </mat-form-field>
+   
+     
+   <mat-form-field>
+   
+      <input matInput placeholder="Rendelesek" class="input" list="Rendelesek" [formControl]="rendeles_id">
+      <datalist id="Rendelesek">
+         <option *ngFor="let item of assistants" value="{{item['id']}}" >{{item['name']}} - {{item['id']}}</option>
+      </datalist>
+   
+   </mat-form-field>
+   
+     
+   <button mat-raised-button type="button" class="submit_none" id="submit" (click)="callModifyAssingment()">Ok</button>
+</div>

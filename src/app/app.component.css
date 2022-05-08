@@ -1,0 +1,31 @@
+#home{
+    height: 100vh;
+}
+#lists{
+    height: 80vh;
+}
+
+.navigation{
+    list-style: none;
+    padding: 0; 
+    margin: 0;
+}
+
+.navigation a{
+    cursor: pointer;
+    width: fit-content;
+    padding: .75rem;
+    height: 2rem;
+    text-align: center;
+    border-radius: 20px;
+    transition: background-color .5s;
+    transition: color .25s;
+}
+*{
+    color: black;
+}
+.navigation a:hover{
+   
+    background-color: #F7FF93;
+    color: black;
+}

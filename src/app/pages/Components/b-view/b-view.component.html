@@ -1,0 +1,356 @@
+<style>
+    .assingments{
+        display: flex;
+        flex-direction: column; 
+        max-width: 9rem;
+        margin: auto;
+        margin-bottom: 20%;
+        border: 1px solid black;
+        padding: 12%;
+        background-color: #CCF3EE;
+    }
+    
+</style>
+
+
+<div id="tables" fxFlex fxLayout fxHide.lt-md >
+    <table style="position: relative;">
+        <tr style="position: absolute;">
+            <th>Hétfő</th>
+        </tr>
+        <tr *ngFor="let obj of h_assingments" style =
+        " 
+        transform: translate(0,3rem);
+        height: 8rem;   
+        overflow: hidden;
+        ">
+        <div hover title={{obj.id}}  *ngIf="obj.day == 'Hétfő'">
+                <app-b-field class="assingments"             
+                [rname]="obj.rname"
+                [begin]="obj.begin"
+                [end]="obj.end"
+                [assistant]="obj.assistant"
+                [doctor]="obj.doctor"
+                [id]="obj.id"   >
+                </app-b-field>
+        </div>
+        </tr>
+
+    </table>
+    <table style="position: relative;">
+        <tr style="position: absolute;">
+            <th >Kedd</th>    
+        </tr>
+        <tr *ngFor="let obj of k_assingments" style="position: relative;" style =
+        " 
+        transform: translate(0,3rem);
+        height: 8rem;   
+        overflow: hidden;
+        ">
+            <div hover title={{obj.id}} *ngIf="obj.day == 'Kedd'">
+                <app-b-field class="assingments"
+                [rname]="obj.rname"
+                [begin]="obj.begin"
+                [end]="obj.end"
+                [assistant]="obj.assistant"
+                [doctor]="obj.doctor"
+                [id]="obj.id"   >
+                </app-b-field>
+            </div>
+        </tr>
+    </table>
+    
+    <table style="position: relative;">
+        <tr style="position: absolute;">
+            <th>Szerda</th>
+        </tr>
+        <tr *ngFor="let obj of sze_assingments" style =
+        " 
+        transform: translate(0,3rem);
+        height: 8rem;   
+        overflow: hidden;
+        ">
+            <div hover title={{obj.id}} *ngIf="obj.day == 'Szerda'">
+                <app-b-field class="assingments"
+                [rname]="obj.rname"
+                [begin]="obj.begin"
+                [end]="obj.end"
+                [assistant]="obj.assistant"
+                [doctor]="obj.doctor"
+                [id]="obj.id"   >
+                </app-b-field>
+            </div>
+        </tr>
+    </table>
+    
+    <table style="position: relative;">
+        <tr style="position: absolute;">
+            <th>Csütörtök</th>
+        </tr>
+        <tr *ngFor="let obj of cs_assingments" style =
+        " 
+        transform: translate(0,3rem);
+        height: 8rem;   
+        overflow: hidden;
+        ">
+        <div hover title={{obj.id}} *ngIf="obj.day == 'Csütörtök'">
+                <app-b-field class="assingments"
+                [rname]="obj.rname"
+                [begin]="obj.begin"
+                [end]="obj.end"
+                [assistant]="obj.assistant"
+                [doctor]="obj.doctor"
+                [id]="obj.id"   >
+                </app-b-field>
+        </div>           
+        </tr>
+    </table>
+    
+    <table style="position: relative;">
+        <tr style="position: absolute;">
+            <th>Péntek</th>
+        </tr>
+        <tr *ngFor="let obj of p_assingments" style =
+        " 
+        transform: translate(0,3rem);
+        height: 8rem;   
+        overflow: hidden;
+        ">
+            <div hover title={{obj.id}} *ngIf="obj.day == 'Péntek'">
+                <app-b-field class="assingments" 
+                [rname]="obj.rname"
+                [begin]="obj.begin"
+                [end]="obj.end"
+                [assistant]="obj.assistant"
+                [doctor]="obj.doctor"
+                [id]="obj.id"   >
+                </app-b-field>
+            </div>
+        </tr>
+    </table>
+    
+    <table style="position: relative;">
+        <tr style="position: absolute;">
+            <th>Szombat</th>
+        </tr>
+        <tr *ngFor="let obj of sz_assingments" style =
+        " 
+        transform: translate(0,3rem);
+        height: 8rem;   
+        overflow: hidden;
+        ">
+            <div hover title={{obj.id}} *ngIf="obj.day == 'Szombat'">
+                <app-b-field class="assingments"
+                [rname]="obj.rname"
+                [begin]="obj.begin"
+                [end]="obj.end"
+                [assistant]="obj.assistant"
+                [doctor]="obj.doctor"
+                [id]="obj.id"   >
+                </app-b-field>
+            </div>
+        </tr>
+    </table>
+    
+    <table style="position: relative;">
+        <tr style="position: absolute;">
+            <th>Vasárnap</th>
+        </tr>
+        <tr *ngFor="let obj of v_assingments" style =
+        " 
+        transform: translate(0,3rem);
+        height: 8rem;   
+        overflow: hidden;
+        ">
+            <div hover title={{obj.id}} *ngIf="obj.day == 'Vasárnap'">
+                <app-b-field class="assingments"
+                [rname]="obj.rname"
+                [begin]="obj.begin"
+                [end]="obj.end"
+                [assistant]="obj.assistant"
+                [doctor]="obj.doctor"
+                [id]="obj.id"   >
+                </app-b-field>
+            </div>
+        </tr>
+    </table>    
+</div>
+
+
+
+
+
+<!--MOBILE-->
+
+
+<div id="tables2" fxHide.gt-md fxHide.md fxLayout="column" fxLayoutAlign="center">
+    <style>
+        #tables2{
+            margin: auto;
+            margin-top: 5rem;
+        }
+        #tables2 table{
+            margin: 2rem;
+        }
+    </style>    
+        <table style="position: relative;">
+            <tr style="position: absolute;">
+                <th>Hétfő</th>
+            </tr>
+            <tr *ngFor="let obj of h_assingments" style =
+            " 
+            transform: translate(0,3rem);
+            height: 8rem;   
+            overflow: hidden;
+            ">
+            <div hover title={{obj.id}}  *ngIf="obj.day == 'Hétfő'">
+                    <app-b-field class="assingments"             
+                    [rname]="obj.rname"
+                    [begin]="obj.begin"
+                    [end]="obj.end"
+                    [assistant]="obj.assistant"
+                    [doctor]="obj.doctor"
+                    [id]="obj.id"   >
+                    </app-b-field>
+            </div>
+            </tr>
+    
+        </table>
+        <table style="position: relative;" >
+            <tr style="position: absolute;">
+                <th>Kedd</th>    
+            </tr>
+            <tr *ngFor="let obj of k_assingments" style="position: relative;" style =
+            " 
+            transform: translate(0,3rem);
+            height: 8rem;   
+            overflow: hidden;
+            ">
+                <div hover title={{obj.id}} *ngIf="obj.day == 'Kedd'">
+                    <app-b-field class="assingments"
+                    [rname]="obj.rname"
+                    [begin]="obj.begin"
+                    [end]="obj.end"
+                    [assistant]="obj.assistant"
+                    [doctor]="obj.doctor"
+                    [id]="obj.id"   >
+                    </app-b-field>
+                </div>
+            </tr>
+        </table>
+        
+        <table style="position: relative;">
+            <tr style="position: absolute;">
+                <th>Szerda</th>
+            </tr>
+            <tr *ngFor="let obj of sze_assingments" style =
+            " 
+            transform: translate(0,3rem);
+            height: 8rem;   
+            overflow: hidden;
+            ">
+                <div hover title={{obj.id}} *ngIf="obj.day == 'Szerda'">
+                    <app-b-field class="assingments"
+                    [rname]="obj.rname"
+                    [begin]="obj.begin"
+                    [end]="obj.end"
+                    [assistant]="obj.assistant"
+                    [doctor]="obj.doctor"
+                    [id]="obj.id"   >
+                    </app-b-field>
+                </div>
+            </tr>
+        </table>
+        
+        <table style="position: relative;">
+            <tr style="position: absolute;">
+                <th>Csütörtök</th>
+            </tr>
+            <tr *ngFor="let obj of cs_assingments" style =
+            " 
+            transform: translate(0,3rem);
+            height: 8rem;   
+            overflow: hidden;
+            ">
+            <div hover title={{obj.id}} *ngIf="obj.day == 'Csütörtök'">
+                    <app-b-field class="assingments"
+                    [rname]="obj.rname"
+                    [begin]="obj.begin"
+                    [end]="obj.end"
+                    [assistant]="obj.assistant"
+                    [doctor]="obj.doctor"
+                    [id]="obj.id"   >
+                    </app-b-field>
+            </div>           
+            </tr>
+        </table>
+        
+        <table style="position: relative;">
+            <tr style="position: absolute;">
+                <th>Péntek</th>
+            </tr>
+            <tr *ngFor="let obj of p_assingments" style =
+            " 
+            transform: translate(0,3rem);
+            height: 8rem;   
+            overflow: hidden;
+            ">
+                <div hover title={{obj.id}} *ngIf="obj.day == 'Péntek'">
+                    <app-b-field class="assingments" 
+                    [rname]="obj.rname"
+                    [begin]="obj.begin"
+                    [end]="obj.end"
+                    [assistant]="obj.assistant"
+                    [doctor]="obj.doctor"
+                    [id]="obj.id"   >
+                    </app-b-field>
+                </div>
+            </tr>
+        </table>
+        
+        <table style="position: relative;">
+            <tr style="position: absolute;">
+                <th>Szombat</th>
+            </tr>
+            <tr *ngFor="let obj of sz_assingments" style =
+            " 
+            transform: translate(0,3rem);
+            height: 8rem;   
+            overflow: hidden;
+            ">
+                <div hover title={{obj.id}} *ngIf="obj.day == 'Szombat'">
+                    <app-b-field class="assingments"
+                    [rname]="obj.rname"
+                    [begin]="obj.begin"
+                    [end]="obj.end"
+                    [assistant]="obj.assistant"
+                    [doctor]="obj.doctor"
+                    [id]="obj.id"   >
+                    </app-b-field>
+                </div>
+            </tr>
+        </table>
+        
+        <table style="position: relative;">
+            <tr style="position: absolute;">
+                <th>Vasárnap</th>
+            </tr>
+            <tr *ngFor="let obj of v_assingments" style =
+            " 
+            transform: translate(0,3rem);
+            height: 8rem;   
+            overflow: hidden;
+            ">
+                <div hover title={{obj.id}} *ngIf="obj.day == 'Vasárnap'">
+                    <app-b-field class="assingments"
+                    [rname]="obj.rname"
+                    [begin]="obj.begin"
+                    [end]="obj.end"
+                    [assistant]="obj.assistant"
+                    [doctor]="obj.doctor"
+                    [id]="obj.id"   >
+                    </app-b-field>
+                </div>
+            </tr>
+        </table>    
+    </div>    
