@@ -29,13 +29,15 @@ div.style.cssText = `
 modify.innerHTML = "Módosít";
 modify.style.position = 'relative';
 modify.style.cssText= `
-                        font-size: 1.5rem;
-                        letter-spacing: .2rem;
+                        font-size: calc(50% + .8vw);
+                        letter-spacing: .1rem;
                         background: none;
                         border: 1px solid black;
-                        backdrop-filter: blur(4px);
+                        background: rgba(0,0,0,0.9);
                         cursor: pointer;
                         border-bottom: none;
+                        color: yellow;
+                        text-align: center;
                       `;
 modify.setAttribute('id', 'modify');
             
@@ -45,12 +47,14 @@ modify.setAttribute('id', 'modify');
 del.innerHTML = "Töröl";
 del.style.position = 'relative';
 del.style.cssText= `
-                        font-size: 1.5rem;
-                        letter-spacing: .2rem;
+                        font-size: calc(90% + .6vw);
+                        letter-spacing: .1rem;
                         background: none;
                         border: 1px solid black;                        
-                        backdrop-filter: blur(4px);
+                        background: rgba(0,0,0,0.9);
                         cursor: pointer;
+                        color: yellow;
+                        text-align: center;
                     `;
 del.setAttribute('id', 'modify');            
 
@@ -85,6 +89,8 @@ div.appendChild(del);
                 this.el.nativeElement.style.width = default_width + 'px';
                 this.el.nativeElement.style.height = default_height + 'px';
                 this.el.nativeElement.style.cssText = "margin-bottom: 20%;";
+
+
                 view = false;
             });
         })

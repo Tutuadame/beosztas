@@ -22,7 +22,8 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage'; 
 import { AngularFireModule } from '@angular/fire/compat';
-import { provideAuth,getAuth } from '@angular/fire/auth'
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app'
 
 @NgModule({
   declarations: [
@@ -47,10 +48,11 @@ import { provideAuth,getAuth } from '@angular/fire/auth'
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    //provideFirebaseApp(() => initializeApp(environment.firebase)),
+    AngularFireModule.initializeApp(environment.firebase),    
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    provideAuth(()=> getAuth()),
+    provideFirebaseApp(() => initializeApp(environment.firebase))
   ],
   providers: [],
   bootstrap: [AppComponent]
