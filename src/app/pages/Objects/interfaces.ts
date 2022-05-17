@@ -12,7 +12,7 @@ export interface CouldWork {
     'id' : string
 }
 
-export interface Assingment {
+export interface Assignment {
     'day' : string,
     'rname' : string,
     'begin' : string,
@@ -27,6 +27,5 @@ export interface CouldWorkWithoutID{
     'rname' : string,
     'begin' : string,
     'end' : string,
-    'assistant' : string,
     'doctor' : string
 }

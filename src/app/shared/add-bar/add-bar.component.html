@@ -29,10 +29,10 @@
             <input matInput class="input" placeholder="Rendelés neve" type="text" formControlName="rname">
         </mat-form-field>    
         <mat-form-field>
-            <input matInput class="input" placeholder="Kezdete" step="0" type="time" formControlName="begin">
+            <input matInput class="input" placeholder="Kezdete" type="text" formControlName="begin">
         </mat-form-field>            
         <mat-form-field>
-            <input matInput class="input" placeholder="Vége" step="0" type="time" formControlName="end">
+            <input matInput class="input" placeholder="Vége" type="text" formControlName="end">
         </mat-form-field>            
         <mat-form-field>
             <input matInput class="input" placeholder="Orvos" type="text" formControlName="doctor">
@@ -59,22 +59,18 @@
     </style>
      
      <mat-form-field>
-        <input matInput placeholder="Asszisztens" class="input" list="Asszisztensek" [formControl]="asszisztens_id">
-        <datalist id="Asszisztensek">
-           <option *ngFor="let item of couldWork" value="{{item['id']}}" >{{item['r_name']}} - {{item['doctor']}}</option>
+        <input matInput placeholder="Új asszisztens" class="input" list="Új asszisztens" [formControl]="asszisztens_id">
+        <datalist id="Új asszisztens">
+           <option *ngFor="let item of assistants" value="{{item['id']}}">{{item['name']}}</option>
         </datalist>
      </mat-form-field>
-     
-       
      <mat-form-field>
-     
-        <input matInput placeholder="Rendelesek" class="input" list="Rendelesek" [formControl]="rendeles_id">
-        <datalist id="Rendelesek">
-           <option *ngFor="let item of assistants" value="{{item['id']}}" >{{item['name']}} - {{item['id']}}</option>
+        <input matInput placeholder="Új rendelés" class="input" list="Új rendelés" [formControl]="rendeles_id">
+        <datalist id="Új rendelés">
+           <option *ngFor="let item of couldWork" title="-{{item['doctor']}}" value="{{item['id']}}">{{item['rname']}}</option>
         </datalist>
-     
-     </mat-form-field>
+     </mat-form-field>          
      
        
-     <button mat-raised-button type="button" class="submit_none" (click)="callAddAssingment()">Ok</button>
+     <button mat-raised-button type="button" class="submit_none" (click)="callAddAssignment()">Ok</button>
 </div>

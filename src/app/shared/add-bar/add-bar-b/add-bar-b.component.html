@@ -15,20 +15,14 @@
    <mat-form-field>
       <input matInput placeholder="Asszisztens" class="input" list="Asszisztensek" [formControl]="asszisztens_id">
       <datalist id="Asszisztensek">
-         <option *ngFor="let item of couldWork" value="{{item['id']}}" >{{item['r_name']}} - {{item['doctor']}}</option>
+         <option *ngFor="let item of assistants" title="{{item['name']}} - {{item['id']}}" value="{{item['id']}}" ></option>
       </datalist>
    </mat-form-field>
-   
-     
    <mat-form-field>
-   
       <input matInput placeholder="Rendelesek" class="input" list="Rendelesek" [formControl]="rendeles_id">
       <datalist id="Rendelesek">
-         <option *ngFor="let item of assistants" value="{{item['id']}}" >{{item['name']}} - {{item['id']}}</option>
+         <option *ngFor="let item of couldWork" title="{{item['rname']}} - {{item['doctor']}}" value="{{item['id']}}" ></option>
       </datalist>
-   
-   </mat-form-field>
-   
-     
-   <button mat-raised-button type="button" class="submit_none" id="submit" (click)="callModifyAssingment()">Ok</button>
+   </mat-form-field>          
+   <button mat-raised-button type="button" class="submit_none" id="submit" (click)="callModifyAssignment()">Ok</button>
 </div>

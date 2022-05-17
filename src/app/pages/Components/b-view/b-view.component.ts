@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AssingmentsObject } from '../../Objects/data';
-import { Assingment } from '../../Objects/interfaces';
+import { AssignmentService } from 'src/app/services/assignments/assignment.service';
+import { Assignment } from '../../Objects/interfaces';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-b-view',
@@ -9,62 +10,71 @@ import { Assingment } from '../../Objects/interfaces';
 })
 export class BViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private assign_ser: AssignmentService) {}
+  subscriptions: Array<Subscription> = [];
 
-  h_assingments: Array<Assingment> = []; 
-  k_assingments: Array<Assingment> = []; 
-  sze_assingments: Array<Assingment> = [];
-  cs_assingments: Array<Assingment> = []; 
-  p_assingments: Array<Assingment> = []; 
-  sz_assingments: Array<Assingment> = []; 
-  v_assingments: Array<Assingment> = []; 
+  h_Assignments: Array<Assignment> = []; 
+  k_Assignments: Array<Assignment> = []; 
+  sze_Assignments: Array<Assignment> = [];
+  cs_Assignments: Array<Assignment> = []; 
+  p_Assignments: Array<Assignment> = []; 
+  sz_Assignments: Array<Assignment> = []; 
+  v_Assignments: Array<Assignment> = []; 
 
-  separate(Object: Array<Assingment>){
-    Object.forEach(element => {
+  separate(Object: Array<Assignment>){
+    console.log("Meghivtak");
+    let i=0;
+    while(i !== Object.length){
+      let element = Object[i];
       switch(element.day){
         case 'Hétfő': { 
-          this.h_assingments.push(element);
+          this.h_Assignments.push(element);
           break; 
        } 
         case 'Kedd': { 
-          this.k_assingments.push(element);
+          this.k_Assignments.push(element);
           break; 
        } 
        
-        case 'Szerda': { 
-          this.sze_assingments.push(element);
+        case 'Szerda': {           
+          this.sze_Assignments.push(element);
           break; 
        } 
       
         case 'Csütörtök': { 
-          this.cs_assingments.push(element);
+          this.cs_Assignments.push(element);
           break; 
        } 
        
-        case 'Péntek': { 
-          this.p_assingments.push(element);
+        case 'Péntek': {           
+          this.p_Assignments.push(element);
           break; 
        } 
 
         case 'Szombat': { 
-          this.sz_assingments.push(element);
+
+          this.sz_Assignments.push(element);
           break; 
        } 
         case 'Vasárnap': { 
-          this.v_assingments.push(element);
+          this.v_Assignments.push(element);
           break; 
        } 
       }
-    });
+      i++;
+      
+    };    
   }
 
-  ngOnInit(): void {
-    this.separate(AssingmentsObject);
+  ngOnInit(): void{
+    this.subscriptions.concat(this.assign_ser.getAll().subscribe((data: Array<Assignment>) => {
+      let length = this.h_Assignments.length + this.k_Assignments.length + this.sze_Assignments.length + this.cs_Assignments.length + this.p_Assignments.length + this.sz_Assignments.length + this.v_Assignments.length;
+      if(length < data.length){
+        this.separate(data);
+      }      
+    })); 
   }
-  
-
 }
-
 
 export function modifyCouldWork(id: string){
   console.log(id);

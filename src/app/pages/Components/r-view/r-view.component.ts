@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CouldWorkObject } from '../../Objects/data';
+import { Subscription } from 'rxjs';
+import { CouldworkService } from 'src/app/services/couldworks/couldwork.service';
+import { CouldWork } from '../../Objects/interfaces';
+
 
 @Component({
   selector: 'app-r-view',
@@ -8,11 +11,16 @@ import { CouldWorkObject } from '../../Objects/data';
 })
 export class RViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private couldwork_ser: CouldworkService) { }
 
-  couldWork : Array<any> = CouldWorkObject;
+  couldWork : Array<any> = [];
+  subscriptions: Array<Subscription> = [];
+
 
   ngOnInit(): void {
+    this.subscriptions.concat(this.couldwork_ser.getAll().subscribe((data: Array<CouldWork>) => {
+      this.couldWork = data;
+    }));
   }
 
 

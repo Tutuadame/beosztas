@@ -18,7 +18,7 @@ import { MatListModule } from '@angular/material/list'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select';
-import { environment } from '../environments/environment';
+import { environment } from './environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage'; 
 import { AngularFireModule } from '@angular/fire/compat';

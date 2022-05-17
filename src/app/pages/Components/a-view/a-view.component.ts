@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AssistantObject } from '../../Objects/data';
-import { deleteAssistant } from '../../Objects/Assistant';
+import { AssistantService } from 'src/app/services/assistants/assistant.service';
+import { Subscription } from 'rxjs';
+import { Assistant } from '../../Objects/interfaces';
+
 
 @Component({
   selector: 'app-a-view',
@@ -9,9 +11,11 @@ import { deleteAssistant } from '../../Objects/Assistant';
 })
 export class AViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private assistant_ser: AssistantService) { }
 
-  assistants: Array<any> = AssistantObject;
+  assistants: Array<any> = [];
+  subscriptions: Array<Subscription> = [];
+
 
   handleDel(id: string){
     //deleteAssistant(id);
@@ -22,9 +26,12 @@ export class AViewComponent implements OnInit {
   handleMod(id: string){
     console.log(id);
   }
+  
 
 
   ngOnInit(): void {
+    this.subscriptions.concat(this.assistant_ser.getAll().subscribe((data: Array<Assistant>) => {
+      this.assistants = data;
+    }));
   }
-
 }

@@ -1,5 +1,5 @@
 <style>
-    .assingments{
+    .Assignments{
         display: flex;
         flex-direction: column; 
         max-width: 9rem;
@@ -18,14 +18,14 @@
         <tr style="position: absolute;">
             <th>Hétfő</th>
         </tr>
-        <tr *ngFor="let obj of h_assingments" style =
+        <tr *ngFor="let obj of h_Assignments" style =
         " 
         transform: translate(0,3rem);
         height: 8rem;   
         overflow: hidden;
         ">
-        <div hover title={{obj.id}}  *ngIf="obj.day == 'Hétfő'">
-                <app-b-field class="assingments"             
+        <div hover id={{obj.id}}  *ngIf="obj.day == 'Hétfő'">
+                <app-b-field class="Assignments"             
                 [rname]="obj.rname"
                 [begin]="obj.begin"
                 [end]="obj.end"
@@ -41,14 +41,14 @@
         <tr style="position: absolute;">
             <th >Kedd</th>    
         </tr>
-        <tr *ngFor="let obj of k_assingments" style="position: relative;" style =
+        <tr *ngFor="let obj of k_Assignments" style="position: relative;" style =
         " 
         transform: translate(0,3rem);
         height: 8rem;   
         overflow: hidden;
         ">
-            <div hover title={{obj.id}} *ngIf="obj.day == 'Kedd'">
-                <app-b-field class="assingments"
+            <div hover id={{obj.id}} *ngIf="obj.day == 'Kedd'">
+                <app-b-field class="Assignments"
                 [rname]="obj.rname"
                 [begin]="obj.begin"
                 [end]="obj.end"
@@ -64,14 +64,14 @@
         <tr style="position: absolute;">
             <th>Szerda</th>
         </tr>
-        <tr *ngFor="let obj of sze_assingments" style =
+        <tr *ngFor="let obj of sze_Assignments" style =
         " 
         transform: translate(0,3rem);
         height: 8rem;   
         overflow: hidden;
         ">
-            <div hover title={{obj.id}} *ngIf="obj.day == 'Szerda'">
-                <app-b-field class="assingments"
+            <div hover id={{obj.id}} *ngIf="obj.day == 'Szerda'">
+                <app-b-field class="Assignments"
                 [rname]="obj.rname"
                 [begin]="obj.begin"
                 [end]="obj.end"
@@ -87,14 +87,14 @@
         <tr style="position: absolute;">
             <th>Csütörtök</th>
         </tr>
-        <tr *ngFor="let obj of cs_assingments" style =
+        <tr *ngFor="let obj of cs_Assignments" style =
         " 
         transform: translate(0,3rem);
         height: 8rem;   
         overflow: hidden;
         ">
-        <div hover title={{obj.id}} *ngIf="obj.day == 'Csütörtök'">
-                <app-b-field class="assingments"
+        <div hover id={{obj.id}} *ngIf="obj.day == 'Csütörtök'">
+                <app-b-field class="Assignments"
                 [rname]="obj.rname"
                 [begin]="obj.begin"
                 [end]="obj.end"
@@ -110,14 +110,14 @@
         <tr style="position: absolute;">
             <th>Péntek</th>
         </tr>
-        <tr *ngFor="let obj of p_assingments" style =
+        <tr *ngFor="let obj of p_Assignments" style =
         " 
         transform: translate(0,3rem);
         height: 8rem;   
         overflow: hidden;
         ">
-            <div hover title={{obj.id}} *ngIf="obj.day == 'Péntek'">
-                <app-b-field class="assingments" 
+            <div hover id={{obj.id}} *ngIf="obj.day == 'Péntek'">
+                <app-b-field class="Assignments"                 
                 [rname]="obj.rname"
                 [begin]="obj.begin"
                 [end]="obj.end"
@@ -133,14 +133,14 @@
         <tr style="position: absolute;">
             <th>Szombat</th>
         </tr>
-        <tr *ngFor="let obj of sz_assingments" style =
+        <tr *ngFor="let obj of sz_Assignments" style =
         " 
         transform: translate(0,3rem);
         height: 8rem;   
         overflow: hidden;
         ">
-            <div hover title={{obj.id}} *ngIf="obj.day == 'Szombat'">
-                <app-b-field class="assingments"
+            <div hover id={{obj.id}} *ngIf="obj.day == 'Szombat'">
+                <app-b-field class="Assignments"
                 [rname]="obj.rname"
                 [begin]="obj.begin"
                 [end]="obj.end"
@@ -156,14 +156,14 @@
         <tr style="position: absolute;">
             <th>Vasárnap</th>
         </tr>
-        <tr *ngFor="let obj of v_assingments" style =
+        <tr *ngFor="let obj of v_Assignments" style =
         " 
         transform: translate(0,3rem);
         height: 8rem;   
         overflow: hidden;
         ">
-            <div hover title={{obj.id}} *ngIf="obj.day == 'Vasárnap'">
-                <app-b-field class="assingments"
+            <div hover id={{obj.id}} *ngIf="obj.day == 'Vasárnap'">
+                <app-b-field class="Assignments"
                 [rname]="obj.rname"
                 [begin]="obj.begin"
                 [end]="obj.end"
@@ -180,7 +180,7 @@
 
 
 
-<!--MOBILE-->
+<!--MOBILE -->
 
 
 <div id="tables2" fxHide.gt-md fxHide.md fxLayout="column" fxLayoutAlign="center">
@@ -197,14 +197,14 @@
             <tr style="position: absolute;">
                 <th>Hétfő</th>
             </tr>
-            <tr *ngFor="let obj of h_assingments" style =
+            <tr *ngFor="let obj of h_Assignments" style =
             " 
             transform: translate(0,3rem);
             height: 8rem;   
             overflow: hidden;
             ">
-            <div hover title={{obj.id}}  *ngIf="obj.day == 'Hétfő'">
-                    <app-b-field class="assingments"             
+            <div hover id={{obj.id}}  *ngIf="obj.day == 'Hétfő'">
+                    <app-b-field class="Assignments"             
                     [rname]="obj.rname"
                     [begin]="obj.begin"
                     [end]="obj.end"
@@ -220,14 +220,14 @@
             <tr style="position: absolute;">
                 <th>Kedd</th>    
             </tr>
-            <tr *ngFor="let obj of k_assingments" style="position: relative;" style =
+            <tr *ngFor="let obj of k_Assignments" style="position: relative;" style =
             " 
             transform: translate(0,3rem);
             height: 8rem;   
             overflow: hidden;
             ">
-                <div hover title={{obj.id}} *ngIf="obj.day == 'Kedd'">
-                    <app-b-field class="assingments"
+                <div hover id={{obj.id}} *ngIf="obj.day == 'Kedd'">
+                    <app-b-field class="Assignments"
                     [rname]="obj.rname"
                     [begin]="obj.begin"
                     [end]="obj.end"
@@ -243,14 +243,14 @@
             <tr style="position: absolute;">
                 <th>Szerda</th>
             </tr>
-            <tr *ngFor="let obj of sze_assingments" style =
+            <tr *ngFor="let obj of sze_Assignments" style =
             " 
             transform: translate(0,3rem);
             height: 8rem;   
             overflow: hidden;
             ">
-                <div hover title={{obj.id}} *ngIf="obj.day == 'Szerda'">
-                    <app-b-field class="assingments"
+                <div hover id={{obj.id}} *ngIf="obj.day == 'Szerda'">
+                    <app-b-field class="Assignments"
                     [rname]="obj.rname"
                     [begin]="obj.begin"
                     [end]="obj.end"
@@ -266,14 +266,14 @@
             <tr style="position: absolute;">
                 <th>Csütörtök</th>
             </tr>
-            <tr *ngFor="let obj of cs_assingments" style =
+            <tr *ngFor="let obj of cs_Assignments" style =
             " 
             transform: translate(0,3rem);
             height: 8rem;   
             overflow: hidden;
             ">
-            <div hover title={{obj.id}} *ngIf="obj.day == 'Csütörtök'">
-                    <app-b-field class="assingments"
+            <div hover id={{obj.id}} *ngIf="obj.day == 'Csütörtök'">
+                    <app-b-field class="Assignments"
                     [rname]="obj.rname"
                     [begin]="obj.begin"
                     [end]="obj.end"
@@ -289,14 +289,14 @@
             <tr style="position: absolute;">
                 <th>Péntek</th>
             </tr>
-            <tr *ngFor="let obj of p_assingments" style =
+            <tr *ngFor="let obj of p_Assignments" style =
             " 
             transform: translate(0,3rem);
             height: 8rem;   
             overflow: hidden;
             ">
-                <div hover title={{obj.id}} *ngIf="obj.day == 'Péntek'">
-                    <app-b-field class="assingments" 
+                <div hover id={{obj.id}} *ngIf="obj.day == 'Péntek'">
+                    <app-b-field class="Assignments" 
                     [rname]="obj.rname"
                     [begin]="obj.begin"
                     [end]="obj.end"
@@ -312,14 +312,14 @@
             <tr style="position: absolute;">
                 <th>Szombat</th>
             </tr>
-            <tr *ngFor="let obj of sz_assingments" style =
+            <tr *ngFor="let obj of sz_Assignments" style =
             " 
             transform: translate(0,3rem);
             height: 8rem;   
             overflow: hidden;
             ">
-                <div hover title={{obj.id}} *ngIf="obj.day == 'Szombat'">
-                    <app-b-field class="assingments"
+                <div hover id={{obj.id}} *ngIf="obj.day == 'Szombat'">
+                    <app-b-field class="Assignments"
                     [rname]="obj.rname"
                     [begin]="obj.begin"
                     [end]="obj.end"
@@ -335,14 +335,14 @@
             <tr style="position: absolute;">
                 <th>Vasárnap</th>
             </tr>
-            <tr *ngFor="let obj of v_assingments" style =
+            <tr *ngFor="let obj of v_Assignments" style =
             " 
             transform: translate(0,3rem);
             height: 8rem;   
             overflow: hidden;
             ">
-                <div hover title={{obj.id}} *ngIf="obj.day == 'Vasárnap'">
-                    <app-b-field class="assingments"
+                <div hover id={{obj.id}} *ngIf="obj.day == 'Vasárnap'">
+                    <app-b-field class="Assignments"
                     [rname]="obj.rname"
                     [begin]="obj.begin"
                     [end]="obj.end"

@@ -10,11 +10,11 @@ export class AssistantService {
 
   constructor(private afs: AngularFirestore) { }
 
-  collectionName = 'assistants'
+  collectionName = 'assistants';
 
   create(name: string){
     let number: number = Math.round(Math.random() * (9999 - 1000) + 1000);
-    let createdId = 'R'+number.toString();
+    let createdId = 'A'+number.toString();
 
     let assistant:Assistant = {
       'hours': '0',
@@ -22,7 +22,8 @@ export class AssistantService {
       'name': name
     }
 
-    return this.afs.collection<Assistant>(this.collectionName).doc('C0000').set(assistant);
+    return this.afs.collection<Assistant>(this.collectionName).doc(createdId).set(assistant);
+
   }
 
   update(){
@@ -30,10 +31,11 @@ export class AssistantService {
   }
 
   getAll(){
-    
+    return this.afs.collection<Assistant>(this.collectionName).valueChanges();
   }
 
   delete(){
     
   }
+
 }
