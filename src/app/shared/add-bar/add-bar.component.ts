@@ -114,11 +114,7 @@ export class AddBarComponent implements OnInit, OnDestroy {
   }
 
   callAddAssignment(){
-    this.assign_ser.create(this.asszisztens_id.value, this.rendeles_id.value).then(()=>{
-      console.log('Beosztas hozzadva!')      
-    }).catch(error =>{
-      console.log('Hiba beosztasnal:', error);
-    });
+    this.assign_ser.create(this.asszisztens_id.value, this.rendeles_id.value);
   }
 
   ngOnDestroy(){

@@ -24,6 +24,10 @@
         text-align: center;
     }
 
+    .data{
+        width: .5rem;
+        position: absolute;
+    }
 </style>
 
 <table>
@@ -35,17 +39,16 @@
         <th>Orvos</th>
     </tr>
     
-    <tr class="rendelesek" *ngFor="let obj of couldWork">            
-            <td>{{obj.day}}</td>
-            <td>{{obj.begin}}</td>
-            <td>{{obj.end}}</td>
-            <td>{{obj.rname}}</td>
-            <td>{{obj.doctor}}</td>
-            <span>
-                <button style="background-color: #F7FF93; color: black; margin: .2rem;" mat-raised-button (click)="handleMod(obj.id)" value={{obj.id}}>Módosítás</button>
+    <tr id="rendeles" class="rendelesek" *ngFor="let obj of couldWork">            
+            <td class="{{obj.id}}" id="day">{{obj.day}}</td>
+            <td class="{{obj.id}}" id="begin">{{obj.begin}}</td>
+            <td class="{{obj.id}}" id="end">{{obj.end}}</td>
+            <td class="{{obj.id}}" id="rname">{{obj.rname}}</td>
+            <td class="{{obj.id}}" id="doctor">{{obj.doctor}}</td>
+            <span class="{{obj.id}}">
+                <button change_r style="background-color: #F7FF93; color: black; margin: .2rem;" mat-raised-button value={{obj.id}}>Módosítás</button>
                 <button style="background-color: #F7FF93; color: black; margin: .2rem;" mat-raised-button (click)="handleDel(obj.id)" value={{obj.id}}>Törlés</button>
             </span>
-            
     </tr>
     
 </table>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AssignmentService } from 'src/app/services/assignments/assignment.service';
 import { Assignment } from '../../Objects/interfaces';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription, Subject, startWith, switchMap } from 'rxjs';
+
 
 @Component({
   selector: 'app-b-view',
@@ -10,7 +11,12 @@ import { Subscription } from 'rxjs';
 })
 export class BViewComponent implements OnInit {
 
-  constructor(private assign_ser: AssignmentService) {}
+  meret: number = 0;
+
+  
+  constructor(private assign_ser: AssignmentService) {    
+  }
+
   subscriptions: Array<Subscription> = [];
 
   h_Assignments: Array<Assignment> = []; 
@@ -26,38 +32,51 @@ export class BViewComponent implements OnInit {
     let i=0;
     while(i !== Object.length){
       let element = Object[i];
+      
       switch(element.day){
         case 'Hétfő': { 
-          this.h_Assignments.push(element);
+          if(!this.check(this.h_Assignments, element)){
+            this.h_Assignments.push(element);
+          }
           break; 
        } 
         case 'Kedd': { 
-          this.k_Assignments.push(element);
+          if(!this.check(this.k_Assignments, element)){
+            this.k_Assignments.push(element);
+          }        
           break; 
-       } 
-       
+       }        
         case 'Szerda': {           
-          this.sze_Assignments.push(element);
+          if(!this.check(this.sze_Assignments, element)){
+            this.sze_Assignments.push(element);
+          }                  
           break; 
        } 
       
         case 'Csütörtök': { 
-          this.cs_Assignments.push(element);
+          if(!this.check(this.cs_Assignments, element)){
+            this.cs_Assignments.push(element);
+          }                            
           break; 
        } 
        
         case 'Péntek': {           
-          this.p_Assignments.push(element);
+          if(!this.check(this.p_Assignments, element)){
+            this.p_Assignments.push(element);
+          }                                      
           break; 
        } 
 
         case 'Szombat': { 
-
-          this.sz_Assignments.push(element);
+          if(!this.check(this.sz_Assignments, element)){
+            this.sz_Assignments.push(element);
+          }                                                
           break; 
        } 
         case 'Vasárnap': { 
-          this.v_Assignments.push(element);
+          if(!this.check(this.v_Assignments, element)){
+            this.v_Assignments.push(element);
+          }
           break; 
        } 
       }
@@ -66,20 +85,31 @@ export class BViewComponent implements OnInit {
     };    
   }
 
-  ngOnInit(): void{
-    this.subscriptions.concat(this.assign_ser.getAll().subscribe((data: Array<Assignment>) => {
-      let length = this.h_Assignments.length + this.k_Assignments.length + this.sze_Assignments.length + this.cs_Assignments.length + this.p_Assignments.length + this.sz_Assignments.length + this.v_Assignments.length;
-      if(length < data.length){
-        this.separate(data);
-      }      
-    })); 
+  check(Object_array: Array<Assignment>, Object_element: Assignment){
+    for(let i=0; i<Object_array.length; i++){
+      if(Object_array[i].id == Object_element.id){
+        return true;
+      }
+    }
+    return false;
   }
-}
+  
 
-export function modifyCouldWork(id: string){
-  console.log(id);
-}
+  ngOnInit(): void{    
+    this.assign_ser.getAll().subscribe((data: Array<Assignment>) => {      
+      this.separate(data);  
+  
+      //console.log(data);
+      //console.log(this.h_Assignments);              
+      //console.log(data);
+      //console.log(this.h_Assignments);
 
-export function deleteCouldWork(id: string){
-  console.log(id);
+      
+    });
+  }
+
+
+/*    
+      
+      */
 }

@@ -9,7 +9,7 @@ export class CouldworkService {
 
   constructor(private afs: AngularFirestore) { }
 
-  collectionName = 'assistants'
+  collectionName = 'couldworks'
 
   create(couldwork_sample: CouldWorkWithoutID){
     console.log(couldwork_sample);
@@ -29,8 +29,18 @@ export class CouldworkService {
 
   }
 
-  update(){
-    
+  update(couldwork_id: string, new_r: CouldWorkWithoutID){
+    let couldwork:CouldWork = {
+      'begin': new_r.begin,
+      'end': new_r.end,
+      'day': new_r.day,
+      'rname': new_r.rname,
+      'doctor': new_r.doctor,
+      'id': couldwork_id
+    };
+    console.log(couldwork);
+
+    return this.afs.collection<CouldWork>(this.collectionName).doc(couldwork_id).set(couldwork);
   }
 
   getAll(){

@@ -21,6 +21,7 @@ export class BFieldComponent implements OnInit{
 
 
   ngOnInit(){
+    
   }
 
 }

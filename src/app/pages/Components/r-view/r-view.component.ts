@@ -25,10 +25,7 @@ export class RViewComponent implements OnInit {
 
 
   handleDel(id: string){
-    console.log(id);
-  }
-  handleMod(id: string){
-    console.log(id);
+   this.couldwork_ser.delete(id);
   }
 
 }

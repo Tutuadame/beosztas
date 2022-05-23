@@ -7,19 +7,21 @@ import { RViewComponent } from '../../Components/r-view/r-view.component';
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { ChangeRendlesDirective } from "../../Components/r-view/directive";
 
 
 @NgModule({
   declarations: [
     RendelesekComponent,
-    RViewComponent
+    RViewComponent,
+    ChangeRendlesDirective
   ],
   imports: [
     CommonModule,
     RendelesekRoutingModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,    
   ]
 })
 export class RendelesekModule { }

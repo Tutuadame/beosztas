@@ -19,15 +19,8 @@ export class AViewComponent implements OnInit {
 
   handleDel(id: string){
     //deleteAssistant(id);
-    console.log(id);
+   this.assistant_ser.delete(id);
   }
-
-
-  handleMod(id: string){
-    console.log(id);
-  }
-  
-
 
   ngOnInit(): void {
     this.subscriptions.concat(this.assistant_ser.getAll().subscribe((data: Array<Assistant>) => {

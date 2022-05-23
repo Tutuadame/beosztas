@@ -1,21 +1,21 @@
 import { Directive, ElementRef, HostListener, ViewContainerRef } from "@angular/core";
-import { resolve } from "dns";
 import { AssignmentService } from "src/app/services/assignments/assignment.service";
 import { AddBarBComponent } from '../../../../shared/add-bar/add-bar-b/add-bar-b.component';
 
-let id: string;
 let div:any;
 let modify:any;
 let del:any;
 let view: boolean = false;
 
+
 @Directive({
     selector: '[hover]'
 })
 export class HoverDirective{
-    
-    
-    constructor( private el: ElementRef, private vc: ViewContainerRef, private assign_ser: AssignmentService){}
+    id :string = "";
+    constructor( private el: ElementRef, private vc: ViewContainerRef, private assign_ser: AssignmentService){
+        console.log("hivas");
+    }
 
     @HostListener('mouseenter') onMouseEnter(){
         if(view === false){
@@ -61,9 +61,7 @@ export class HoverDirective{
             del.setAttribute('id', 'modify');            
 
             div.appendChild(modify);
-            div.appendChild(del);
-        
-            id = this.el.nativeElement.title;
+            div.appendChild(del);                    
 
             //console.log(id);
             this.el.nativeElement.style.position = "relative";
@@ -79,6 +77,7 @@ export class HoverDirective{
             modify.style.width = default_width + 'px';
             modify.style.height = default_height/2 + 'px';
             this.el.nativeElement.appendChild(div);
+            
 
             modify.addEventListener('click', ()=>{
                 this.vc.createComponent(AddBarBComponent);  
@@ -95,11 +94,12 @@ export class HoverDirective{
                 });
             })
             
+            
+
             del.addEventListener('click', ()=>{
-                window.location.reload();
                 console.log(this.el.nativeElement.id);
-                this.assign_ser.delete(id).then(()=>{
-                    
+                
+                this.assign_ser.delete(this.el.nativeElement.id).then(()=>{                    
                     window.location.reload();
                 });
             });

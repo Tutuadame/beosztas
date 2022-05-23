@@ -36,7 +36,8 @@ export class AddBarBComponent implements OnInit {
   }
 
   callModifyAssignment(){    
-    let beosztas_id = this.elRef.nativeElement.parentNode.firstChild.id;
+    let beosztas_id = this.elRef.nativeElement.parentNode.firstChild.id;    
     this.assign_ser.update(this.asszisztens_id.value, this.rendeles_id.value, beosztas_id);
+    window.location.reload();
   }
 }

@@ -31,10 +31,13 @@
         <th>Ledolgozott Órák</th>
     </tr>
     <tr *ngFor="let obj of assistants">
-        <td>{{obj.name}}</td>
-        <td>{{obj.hours}}</td>
-        <button style="background-color: #F7FF93; color: black; margin: .2rem;" mat-raised-button (click)="handleMod(obj.id)" value={{obj.id}}>Módosítás</button>
-        <button style="background-color: #F7FF93; color: black; margin: .2rem;" mat-raised-button (click)="handleDel(obj.id)" value={{obj.id}}>Törlés</button>
+        <td class="{{obj.id}}">{{obj.name}}</td>
+        <td class="{{obj.id}}">{{obj.hours}}</td>
+        <span class="{{obj.id}}">
+            <button change_a style="background-color: #F7FF93; color: black; margin: .2rem;" mat-raised-button value={{obj.id}}>Módosítás</button>
+            <button style="background-color: #F7FF93; color: black; margin: .2rem;" mat-raised-button (click)="handleDel(obj.id)" value={{obj.id}}>Törlés</button>
+        </span>
+
     </tr>
     
 </table>

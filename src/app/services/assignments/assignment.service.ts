@@ -92,6 +92,7 @@ export class AssignmentService {
 
   getAll(){
     return this.afs.collection<Assignment>(this.collectionName).valueChanges();
+    
   }
 }
 

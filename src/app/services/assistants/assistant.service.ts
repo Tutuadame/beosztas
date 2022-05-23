@@ -26,16 +26,21 @@ export class AssistantService {
 
   }
 
-  update(){
-    
+  update(id: string, name: string, ora: string){
+    let assistant_: Assistant = {
+      'hours' : ora,
+      'id': id,
+      'name' : name
+    }
+    return this.afs.collection<Assistant>(this.collectionName).doc(id).set(assistant_);
   }
 
   getAll(){
     return this.afs.collection<Assistant>(this.collectionName).valueChanges();
   }
 
-  delete(){
-    
+  delete(assistant_id: string){
+    return this.afs.collection<Assistant>(this.collectionName).doc(assistant_id).delete();
   }
 
 }
