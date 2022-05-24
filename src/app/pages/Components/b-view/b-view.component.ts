@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AssignmentService } from 'src/app/services/assignments/assignment.service';
 import { Assignment } from '../../Objects/interfaces';
 import { Observable, Subscription, Subject, startWith, switchMap } from 'rxjs';
+import { BeosztasokComponent } from '../../Endpoints/beosztasok/beosztasok.component';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Observable, Subscription, Subject, startWith, switchMap } from 'rxjs';
 export class BViewComponent implements OnInit {
 
   meret: number = 0;
-
+  @Input() saved_data: any;
   
   constructor(private assign_ser: AssignmentService) {    
   }
@@ -27,8 +28,10 @@ export class BViewComponent implements OnInit {
   sz_Assignments: Array<Assignment> = []; 
   v_Assignments: Array<Assignment> = []; 
 
+
+
   separate(Object: Array<Assignment>){
-    console.log("Meghivtak");
+    //console.log("Meghivtak");
     let i=0;
     while(i !== Object.length){
       let element = Object[i];
@@ -93,6 +96,20 @@ export class BViewComponent implements OnInit {
     }
     return false;
   }
+  setSaved(){
+    let beosztas = this.saved_data[1]['data'];    
+    this.h_Assignments = [];
+    this.k_Assignments = [];
+    this.sze_Assignments = [];
+    this.cs_Assignments = [];
+    this.p_Assignments = [];
+    this.sz_Assignments = [];
+    this.v_Assignments = [];
+    
+    this.separate(beosztas);
+    console.log(this.h_Assignments);
+  }
+  
   
 
   ngOnInit(): void{    
@@ -108,8 +125,4 @@ export class BViewComponent implements OnInit {
     });
   }
 
-
-/*    
-      
-      */
 }

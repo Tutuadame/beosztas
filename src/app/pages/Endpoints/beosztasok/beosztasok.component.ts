@@ -14,10 +14,11 @@ import { CouldworkService } from 'src/app/services/couldworks/couldwork.service'
 })
 export class BeosztasokComponent implements OnInit {
 
-
   private readonly update$ = new Subject<void>();
   private db$!: Observable<IDBDatabase>;
   public assignments$!: Observable<Assignment[]>;
+  req: any;
+
   constructor(private assign_ser: AssignmentService, private assistant_ser: AssistantService, private rendeles_ser: CouldworkService) { }
 
   public async addBeosztas(): Promise<void> {
@@ -51,6 +52,7 @@ export class BeosztasokComponent implements OnInit {
               transaction.oncomplete = () => {                       
                 this.update$.next();
                 observer.complete();
+                
               };
               return () => transaction?.abort();
             })
@@ -75,7 +77,7 @@ export class BeosztasokComponent implements OnInit {
         )
       )
       .subscribe();
-    });
+    });    
   }
 
   public clearBeosztas(): void {
@@ -98,6 +100,28 @@ export class BeosztasokComponent implements OnInit {
       .subscribe();
   }
 
+  public getSaved(){    
+    this.db$
+      .pipe(
+        switchMap(
+          (db) =>
+            new Observable((observer) => {
+              let transaction = db.transaction("beosztasok", "readwrite");
+              this.req = transaction.objectStore("beosztasok").getAll();
+              
+              transaction.oncomplete = () => {                
+                this.update$.next();
+                observer.complete();                              
+                this.req = this.req.result;
+              };                      
+              return () => transaction?.abort();
+            })
+                          
+        )
+      )
+      .subscribe();      
+      
+  }
 
 
   private updatingAssignments(): void {
@@ -114,7 +138,7 @@ export class BeosztasokComponent implements OnInit {
                 transaction.oncomplete = () => {                  
                   observer.next(request.result as Assignment[]);
                   observer.complete();
-                };
+                };                            
               })
           )
         )
@@ -143,7 +167,8 @@ export class BeosztasokComponent implements OnInit {
 
   ngOnInit(): void {    
     this.initDB();    
-    this.updatingAssignments();
+    this.updatingAssignments();    
+    this.getSaved();
   }
 
 }

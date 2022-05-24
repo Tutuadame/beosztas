@@ -65,7 +65,7 @@
     <mat-icon>delete</mat-icon>
 </button>
 
-<app-b-view></app-b-view>
+<app-b-view [saved_data]="req"></app-b-view>
 
 <div *ngIf="(assignments$ | async) as assignments">
     <ng-container *ngIf="assignments.length > 0; else empty">
