@@ -40,6 +40,7 @@ export class BeosztasokComponent implements OnInit {
         )
       )
       .subscribe();
+
     }); 
     this.assistant_ser.getAll().subscribe((data: Array<Assistant>) => {              
       this.db$
@@ -78,6 +79,7 @@ export class BeosztasokComponent implements OnInit {
       )
       .subscribe();
     });    
+    this.updatingAssignments();  
   }
 
   public clearBeosztas(): void {

@@ -1,12 +1,21 @@
 .inputnone_container{
-    display: none;
+    display: none;    
 }
 .input_container{
-    display: flex;
+    display: flex;    
+    max-width: 80%;
+    transform: translate(0, 2rem);
+
+}
+#b_container{
+    width: fit-content;
+    margin: auto;    
+    transform: translate(0, 2rem);
 }
 
 .submit{
     display: flex;
+    height: fit-content;
 }
 .submit_none{
     display: none;

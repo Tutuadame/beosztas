@@ -14,7 +14,7 @@ export class BViewComponent implements OnInit {
 
   meret: number = 0;  
   @Input() saved_data: any = [];
-  beosztas: any;
+  beosztas: any = [];
   
   constructor(private assign_ser: AssignmentService) {    
   }
@@ -104,33 +104,39 @@ export class BViewComponent implements OnInit {
     this.p_Assignments = [];
     this.sz_Assignments = [];
     this.v_Assignments = [];
-    
+    console.log(this.saved_data[1]['data']);
+
     this.separate(this.saved_data[1]['data']);
-    this.assign_ser.ChangeAll(this.saved_data[1]['data']);
-    //console.log(this.h_Assignments);
+    //this.assign_ser.ChangeAll(this.saved_data[1]['data']);
+    console.log(this.h_Assignments);
   }
 
   ngOnInit(): void{        
     this.assign_ser.getAll().subscribe((data: Array<Assignment>) => {      
       this.separate(data);
       this.assignments = data;  
-    });    
-    
-    
-    document.getElementById('save')?.addEventListener('click',()=>{      
-      //console.log(this.saved_data[1]['data'].length);
-      this.beosztas = this.saved_data[1]['data'];        
-      let button = document.getElementById('restore');
+      document.getElementById('save')?.addEventListener('click',()=>{      
+        //console.log(this.saved_data[1]['data'].length);
+        this.beosztas = this.saved_data[1]['data'];        
+        let button = document.getElementById('restore');
+        if(button != null){        
+          button.style.display = 'block';        
+        }
+      })
+      document.getElementById('delete')?.addEventListener('click', ()=>{
+        let button = document.getElementById('restore');
+        if(button != null){        
+          button.style.display = 'none';        
+        }
+      })
+    });        
+    if(this.saved_data != undefined){
+      /*let button = document.getElementById('restore');
       if(button != null){        
         button.style.display = 'block';        
-      }
-    })
-    document.getElementById('delete')?.addEventListener('click', ()=>{
-      let button = document.getElementById('restore');
-      if(button != null){        
-        button.style.display = 'none';        
-      }
-    })
+      }*/
+      console.log("aálfjaklé");
+    }        
 
   }
 

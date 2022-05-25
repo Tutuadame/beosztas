@@ -20,7 +20,7 @@ export class SightDirective {
         let inputs = document.querySelectorAll(".inputnone_container");
         let submit = document.querySelector(".submit_none");
 
-        console.log(submit);
+        //console.log(submit);
 
         if(view && inputs != null && submit != null){
             console.log("Display");
@@ -29,7 +29,7 @@ export class SightDirective {
             });
             submit.className = 'submit';
         } 
-        //this.el.nativeElement.style.display = 'none';
+        
     }
 
     displayOff(view: boolean){
@@ -44,6 +44,5 @@ export class SightDirective {
             });
             submit.className = 'submit_none';
         } 
-        //this.el.nativeElement.style.display = 'default';
     }
 }

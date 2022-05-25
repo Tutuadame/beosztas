@@ -72,9 +72,45 @@ export class AddBarComponent implements OnInit, OnDestroy {
       
     }));
    
-    button.textContent = "+";
+    button.textContent = "Hozzáadás";
     button.setAttribute('sight','');
     button.setAttribute('name',this.page);   
+    button.style.cssText =  `
+                              width: fit-content;
+                              height: fit-content;                                                          
+                              background: none;
+                              border: 1px solid black;
+                              border-radius:.5rem;
+                              cursor: pointer;                              
+                              font-size: 1.5rem;
+                              text-align:center;   
+
+
+                            `;
+    button.addEventListener('mouseover',()=>{
+      button.style.cssText = `
+                              width: fit-content;
+                              height: fit-content;                                                          
+                              background: #F7FF93;
+                              border: 2px solid black;
+                              border-radius:.5rem;
+                              cursor: pointer;                              
+                              font-size: 1.5rem;
+                              text-align:center;                                                                                          
+                            `;
+    })
+    button.addEventListener('mouseleave',()=>{
+      button.style.cssText =  `
+                              width: fit-content;
+                              height: fit-content;                                                          
+                              background: none;
+                              border: 1px solid black;
+                              border-radius:.5rem;
+                              cursor: pointer;                              
+                              font-size: 1.5rem;
+                              text-align:center;                                                                                          
+                             `;
+    })                         
 
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((evts: any) =>{
       let url = (evts.urlAfterRedirects as string).split('/');

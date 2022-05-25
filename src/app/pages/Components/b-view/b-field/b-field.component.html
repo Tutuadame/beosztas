@@ -1,15 +1,18 @@
 <style>
-    td{
+    .data{
         width: 150%;
         margin-left: .5rem;
         font-size: 1.1rem;
         padding: .20rem;
-        font-style: normal;
+        font-style: normal;        
+        font-weight: lighter;
+
     }
-    span{
+    .title{
         font-size: 1.1rem;
-        font-style: italic;
-    }
+        font-style: italic;   
+        font-weight: bolder;      
+    }    
 
     @media screen and (max-width: 1650px){
         span{
@@ -28,12 +31,24 @@
         td{
             font-size: calc(10% + 1vw);
             transform: translate(-10%);
+          
+        }
+    }
+    @media screen and (max-width: 959px){
+        span{
+            font-size: calc(60% + 1vw);
+            width: 10rem;
+            transform: translate(-5%);
+        }
+        td{
+            font-size: calc(45% + 1vw);
+            transform: translate(-10%);
         }
     }
 </style>
 
-<span>Rendelés neve: <td> {{rname}} </td></span>
-<span>Ideje:<td> {{begin}}-{{end}}</td></span>
-<span>Asszisztens:<td> {{assistant}}</td></span>
-<span>Orvos: <td> {{doctor}}</td></span>
+<span class="title">Rendelés neve: <td class="data"> {{rname}} </td></span>
+<span class="title">Ideje:<td class="data"> {{begin}}-{{end}}</td></span>
+<span class="title">Asszisztens:<td class="data"> {{assistant}}</td></span>
+<span class="title">Orvos: <td class="data"> {{doctor}}</td></span>
 
