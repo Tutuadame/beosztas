@@ -22,6 +22,7 @@
         transition: border .3s;
         transition: background-color .3s;
         text-align: center;
+        display: none;
     }
     #restore:hover{
         border-radius: 50px;
@@ -34,7 +35,10 @@
 
 <button id="restore" (click)="setSaved()">
     <mat-icon>done</mat-icon>
-</button>
+</button>        
+
+
+
 
 <div id="tables" fxFlex fxLayout fxHide.lt-md >
     <table style="position: relative;">

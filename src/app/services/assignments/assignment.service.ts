@@ -91,8 +91,18 @@ export class AssignmentService {
   }
 
   getAll(){
-    return this.afs.collection<Assignment>(this.collectionName).valueChanges();
+    return this.afs.collection<Assignment>(this.collectionName).valueChanges();    
+  }
+  ChangeAll(assignments: Array<Assignment>){    
+    /*this.getAll().subscribe((data)=>{
+      data.forEach(item =>{
+        if(!assignments.includes(item)){
+          this.delete(item.id);
+        }
+      })
+    });*/
     
+
   }
 }
 

@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { AssignmentService } from 'src/app/services/assignments/assignment.service';
 import { Assignment } from '../../Objects/interfaces';
-import { Observable, Subscription, Subject, startWith, switchMap } from 'rxjs';
+import { Observable, Subscription, Subject, startWith, switchMap, BehaviorSubject } from 'rxjs';
 import { BeosztasokComponent } from '../../Endpoints/beosztasok/beosztasok.component';
 
 
@@ -12,13 +12,15 @@ import { BeosztasokComponent } from '../../Endpoints/beosztasok/beosztasok.compo
 })
 export class BViewComponent implements OnInit {
 
-  meret: number = 0;
-  @Input() saved_data: any;
+  meret: number = 0;  
+  @Input() saved_data: any = [];
+  beosztas: any;
   
   constructor(private assign_ser: AssignmentService) {    
   }
 
   subscriptions: Array<Subscription> = [];
+  assignments: Array<Assignment> = [];
 
   h_Assignments: Array<Assignment> = []; 
   k_Assignments: Array<Assignment> = []; 
@@ -27,8 +29,6 @@ export class BViewComponent implements OnInit {
   p_Assignments: Array<Assignment> = []; 
   sz_Assignments: Array<Assignment> = []; 
   v_Assignments: Array<Assignment> = []; 
-
-
 
   separate(Object: Array<Assignment>){
     //console.log("Meghivtak");
@@ -96,8 +96,7 @@ export class BViewComponent implements OnInit {
     }
     return false;
   }
-  setSaved(){
-    let beosztas = this.saved_data[1]['data'];    
+  setSaved(){      
     this.h_Assignments = [];
     this.k_Assignments = [];
     this.sze_Assignments = [];
@@ -106,23 +105,33 @@ export class BViewComponent implements OnInit {
     this.sz_Assignments = [];
     this.v_Assignments = [];
     
-    this.separate(beosztas);
-    console.log(this.h_Assignments);
+    this.separate(this.saved_data[1]['data']);
+    this.assign_ser.ChangeAll(this.saved_data[1]['data']);
+    //console.log(this.h_Assignments);
   }
-  
-  
 
-  ngOnInit(): void{    
+  ngOnInit(): void{        
     this.assign_ser.getAll().subscribe((data: Array<Assignment>) => {      
-      this.separate(data);  
-  
-      //console.log(data);
-      //console.log(this.h_Assignments);              
-      //console.log(data);
-      //console.log(this.h_Assignments);
+      this.separate(data);
+      this.assignments = data;  
+    });    
+    
+    
+    document.getElementById('save')?.addEventListener('click',()=>{      
+      //console.log(this.saved_data[1]['data'].length);
+      this.beosztas = this.saved_data[1]['data'];        
+      let button = document.getElementById('restore');
+      if(button != null){        
+        button.style.display = 'block';        
+      }
+    })
+    document.getElementById('delete')?.addEventListener('click', ()=>{
+      let button = document.getElementById('restore');
+      if(button != null){        
+        button.style.display = 'none';        
+      }
+    })
 
-      
-    });
   }
 
 }
